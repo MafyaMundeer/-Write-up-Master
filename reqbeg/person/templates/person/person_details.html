@@ -1,0 +1,28 @@
+{%load static %}
+<html >
+<head>
+ 
+  <title>The story of {{person.name}}</title>
+
+  <link rel="stylesheet"  href="{% static 'backgroung.css'%}">
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li>
+				<form class="logout-link" action="{% url 'accounts:logoutpage' %}" method="post">
+					{% csrf_token %}
+					<button type="submit"> logout </button>
+				</form>
+			</li>
+		</ul>
+	</nav>
+	<div class="Person">
+		<img src="{{person.photo.url}}"/>
+		<h2> {{person.name}}</h2>
+		<h3> {{person.about}}</h3>
+		</div>
+</body>
+
+</html>

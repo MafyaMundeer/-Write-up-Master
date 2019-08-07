@@ -1,0 +1,33 @@
+{%load static %}
+<html >
+<head>
+ 
+  <title>This site will many purposes, one of which will be write ups</title>
+
+  <link rel="stylesheet"  href="{% static 'backgroung.css'%}">
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li>
+				<form class="logout-link" action="{% url 'accounts:logoutpage' %}" method="post">
+					{% csrf_token %}
+					<button type="submit"> logout </button>
+				</form>
+			</li>
+		</ul>
+	</nav>
+	
+	<div class="Person">
+		{%for guy in  list %}
+		<h2><a href="{% url 'persons:hello' slug=guy.slug %} ">{{guy.name}}</a> 
+			
+				<h3>{{guy.snippet}} </h3>
+
+			 </h2>
+		{% endfor %}	
+		</div>
+</body>
+
+</html>
